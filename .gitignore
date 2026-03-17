@@ -1,0 +1,13 @@
+# Default ignored files
+/.idea
+/.vscode
+/target/classes
+/target/generated-test-sources
+/target/test-classes
+/target/surefire-reports
+/target/maven-status
+/target/cucumber-html-reports
+/target/karate-reports
+merged-test-results.json
+./target
+target
