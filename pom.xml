@@ -21,6 +21,12 @@
             <artifactId>karate-junit5</artifactId>
             <version>${karate.version}</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.karatelabs</groupId>
+            <artifactId>karate-gatling</artifactId>
+            <version>${karate.version}</version>
+            <scope>test</scope>
         </dependency>		
     </dependencies>
 
@@ -52,6 +58,17 @@
                     <argLine>-Dfile.encoding=UTF-8</argLine>
                 </configuration>
             </plugin>          
+            <plugin>
+                <groupId>io.gatling</groupId>
+                <artifactId>gatling-maven-plugin</artifactId>
+                <version>4.3.0</version>
+                <configuration>
+                    <simulationsFolder>src/test/java</simulationsFolder>
+                    <includes>
+                        <include>testApp.performance.TagsSimulation</include>
+                    </includes>
+                </configuration>
+            </plugin>
         </plugins>        
     </build>       
     
