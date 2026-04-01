@@ -2,8 +2,8 @@ Feature: Karate test script on conduit.bondaracademy.com
 
   Background:
     # GET NEW TOKENS
-    * def tokenResponse = callonce read('classpath:helpers/getToken.feature')
-    * def token = tokenResponse.authToken
+    # * def tokenResponse = callonce read('classpath:helpers/getToken.feature')
+    # * def token = tokenResponse.authToken
     Given url Url
 
   @Test1
@@ -29,3 +29,17 @@ Feature: Karate test script on conduit.bondaracademy.com
     And match response.articles[0].author.username == "Artem Bondar"
     And match response.articles[0].createdAt == "2024-01-27T21:52:32.682Z"
     And match response.articles[0].slug == "Discover-Bondar-Academy:-Your-Gateway-to-Efficient-Learning-1"
+
+  @Test3
+  Scenario: Get 2 articles
+    Given path 'articles'
+    And params { limit: 2, offset: 0 }
+    When method GET
+    Then status 200
+    # Dönen makale sayısının tam olarak 2 olduğunu doğrular
+    And match response.articles == '#[2]'
+    # Toplam makale sayısı alanının sayısal bir değer olduğunu doğrular
+    And match response.articlesCount == '#number'
+    # Her bir makalenin başlık ve yazar bilgilerinin string olduğunu doğrular
+    And match each response.articles contains { title: '#string' }
+    And match each response.articles[*].author contains { username: '#string' }
