@@ -1,4 +1,4 @@
-# 🥋 Karate-DSL-API-Automation
+# 🥋 Karate-Gatling-API-Automation
 
 An API Automation and Performance Testing Framework built from scratch using Karate DSL and Gatling. Inspired by the "Karate DSL: API Automation and Performance from Zero to Hero" Udemy Course by Artem Bondar.
 
